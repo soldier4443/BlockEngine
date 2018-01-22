@@ -1,9 +1,9 @@
-package com.midasit.blockengine;
+package com.midasit.blockengine.routine;
 
+import com.midasit.blockengine.RenderingView;
 import com.midasit.blockengine.core.EntityRenderer;
 import com.midasit.blockengine.entity.Entity;
 import com.midasit.blockengine.loader.Loader;
-import com.midasit.blockengine.models.RawModel;
 import com.midasit.blockengine.shader.ColorShader;
 
 /**
@@ -14,28 +14,14 @@ public class Routine {
     
     private RenderingView view;
     
-    private Loader loader;
-    private RawModel model;
+    protected Loader loader;
+    protected Entity entity;
     
     private ColorShader shader;
     private EntityRenderer renderer;
     
-    private Entity entity;
-    
     public void init() {
-        float[] positions = {
-            -0.5f, 0.5f, 0,
-            -0.5f, -0.5f, 0,
-            0.5f, 0.5f, 0,
-            0.5f, 0.5f, 0,
-            -0.5f, -0.5f, 0,
-            0.5f, -0.5f, 0
-        };
-        
         loader = new Loader();
-        model = loader.createModel(positions);
-        entity = new Entity(model);
-    
         shader = new ColorShader(view.getContext());
         renderer = new EntityRenderer(shader);
     }

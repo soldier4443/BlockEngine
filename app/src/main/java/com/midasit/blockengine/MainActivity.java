@@ -7,6 +7,7 @@ import android.util.Log;
 import com.midasit.blockengine.core.Core;
 import com.midasit.blockengine.core.RenderingContext;
 import com.midasit.blockengine.core.RenderingSystem;
+import com.midasit.blockengine.routine.SimpleRoutine;
 
 public class MainActivity extends AppCompatActivity {
     
@@ -31,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         renderingView1.setupRenderer(new RenderingSystem());
         renderingView2.setupRenderer(new RenderingSystem());
         
-        renderingView1.setupRoutine(new Routine());
-        renderingView2.setupRoutine(new Routine());
+        renderingView1.setupRoutine(new SimpleRoutine());
+        renderingView2.setupRoutine(new SimpleRoutine());
         
 //        for (int i = 0; i < 10; i++) {
 //            SimpleTester simpleTester = new SimpleTester();

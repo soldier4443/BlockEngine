@@ -27,7 +27,8 @@ public class Core {
         contextList.add(renderingContext);
     }
     
-    public static void upregisteContext(RenderingContext renderingContext) {
+    // TODO: 2018-01-22 When I should call this..?
+    public static void unregisterContext(RenderingContext renderingContext) {
         contextList.remove(renderingContext);
     }
 }
