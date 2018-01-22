@@ -15,16 +15,19 @@ public class SimpleRoutine extends Routine {
         -0.5f, 0.5f, 0,
         -0.5f, -0.5f, 0,
         0.5f, 0.5f, 0,
-        0.5f, 0.5f, 0,
-        -0.5f, -0.5f, 0,
         0.5f, -0.5f, 0
+    };
+    
+    private final int[] indices = {
+        0, 1, 2,
+        2, 1, 3
     };
     
     @Override
     public void init() {
         super.init();
         
-        model = loader.createModel(positions);
+        model = loader.createModel(positions, indices);
         
         super.entity = new Entity(model);
     }

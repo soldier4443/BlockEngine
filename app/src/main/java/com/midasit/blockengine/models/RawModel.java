@@ -5,10 +5,12 @@ package com.midasit.blockengine.models;
  */
 public class RawModel {
     private int vertexVbo;
+    private int ibo;
     private int vertexCount;
     
-    public RawModel(int vertexVbo, int vertexCount) {
+    public RawModel(int vertexVbo, int ibo, int vertexCount) {
         this.vertexVbo = vertexVbo;
+        this.ibo = ibo;
         this.vertexCount = vertexCount;
     }
     
@@ -18,6 +20,14 @@ public class RawModel {
     
     public void setVertexVbo(int vertexVbo) {
         this.vertexVbo = vertexVbo;
+    }
+    
+    public int getIbo() {
+        return ibo;
+    }
+    
+    public void setIbo(int ibo) {
+        this.ibo = ibo;
     }
     
     public int getVertexCount() {
