@@ -21,22 +21,6 @@ public class RenderingSystem implements GLSurfaceView.Renderer, RenderingContext
     private GLSurfaceView view;
     private Routine routine;
     
-    public GLSurfaceView getView() {
-        return view;
-    }
-    
-    public void setView(GLSurfaceView view) {
-        this.view = view;
-    }
-    
-    public Routine getRoutine() {
-        return routine;
-    }
-    
-    public void setRoutine(Routine routine) {
-        this.routine = routine;
-    }
-    
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
@@ -57,7 +41,7 @@ public class RenderingSystem implements GLSurfaceView.Renderer, RenderingContext
         GLES20.glViewport(0, 0, width, height);
         
         if (routine != null)
-            routine.init();
+            routine.init(width, height);
     
         Log.e("asdf", "onSurfaceChanged called");
     }
@@ -81,5 +65,22 @@ public class RenderingSystem implements GLSurfaceView.Renderer, RenderingContext
                 Log.e("asdf", "RenderingSystem - id:" + Thread.currentThread().getId());
                 view.requestRender();
             });
+    }
+    
+    
+    public GLSurfaceView getView() {
+        return view;
+    }
+    
+    public void setView(GLSurfaceView view) {
+        this.view = view;
+    }
+    
+    public Routine getRoutine() {
+        return routine;
+    }
+    
+    public void setRoutine(Routine routine) {
+        this.routine = routine;
     }
 }

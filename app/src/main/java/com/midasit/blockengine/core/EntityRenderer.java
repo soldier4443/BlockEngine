@@ -19,8 +19,9 @@ public class EntityRenderer {
         this.shader = shader;
     }
     
-    public void render(Entity entity) {
+    public void render(Entity entity, Matrix4f projectionMatrix) {
         shader.start();
+        shader.loadProjectionMatrix(projectionMatrix);
         
         bindTexturedModel(entity);
         
