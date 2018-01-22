@@ -10,7 +10,6 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import static android.opengl.GLES20.GL_BACK;
-import static android.opengl.GLES20.GL_CCW;
 import static android.opengl.GLES20.GL_TEXTURE_2D;
 
 /**
@@ -42,7 +41,6 @@ public class RenderingSystem implements GLSurfaceView.Renderer, RenderingContext
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     
-        GLES20.glFrontFace(GL_CCW);
         GLES20.glCullFace(GL_BACK);
         GLES20.glEnable(GLES20.GL_CULL_FACE);
         GLES20.glEnable(GLES20.GL_DEPTH_TEST);
@@ -50,6 +48,8 @@ public class RenderingSystem implements GLSurfaceView.Renderer, RenderingContext
         GLES20.glEnable(GL_TEXTURE_2D);
         
         Core.registerContext(this);
+        
+        Log.e("asdf", "onSurfaceCreated called");
     }
     
     @Override
@@ -58,14 +58,18 @@ public class RenderingSystem implements GLSurfaceView.Renderer, RenderingContext
         
         if (routine != null)
             routine.init();
+    
+        Log.e("asdf", "onSurfaceChanged called");
     }
     
     @Override
     public void onDrawFrame(GL10 gl) {
-        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
+        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
     
         if (routine != null)
             routine.render();
+    
+        Log.e("asdf", "onDrawFrame called");
     }
     
     @Override

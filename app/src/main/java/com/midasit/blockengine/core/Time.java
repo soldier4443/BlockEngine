@@ -8,7 +8,7 @@ import android.util.Log;
 
 public class Time {
     
-    public static int FPS_CAP = 60;
+    public static int FPS_CAP = 1;
     public static float FRAME_TIME = 1000f / FPS_CAP;
     
     private static long currentTime;

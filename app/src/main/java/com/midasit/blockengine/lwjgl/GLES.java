@@ -29,4 +29,13 @@ public class GLES {
         ints.put(0, buffer);
         GLES20.glDeleteBuffers(1, ints);
     }
+    
+    public static int glGetShaderi(int shader, int pname) {
+        GLES20.glGetShaderiv(shader, pname, ints);
+        return ints.get(0);
+    }
+    
+    public static void glUniformMatrix4(int location, boolean transpose, FloatBuffer matrices) {
+        GLES20.glUniformMatrix4fv(location, matrices.remaining() >> 4, transpose, matrices);
+    }
 }

@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         renderingView1.setupRenderer(new RenderingSystem());
         renderingView2.setupRenderer(new RenderingSystem());
         
+        renderingView1.setupRoutine(new Routine());
+        renderingView2.setupRoutine(new Routine());
+        
 //        for (int i = 0; i < 10; i++) {
 //            SimpleTester simpleTester = new SimpleTester();
 //

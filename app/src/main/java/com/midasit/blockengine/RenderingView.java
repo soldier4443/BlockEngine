@@ -36,7 +36,7 @@ public class RenderingView extends android.opengl.GLSurfaceView {
             renderer.setRoutine(routine);
     }
     
-    public void setupRountine(Routine routine) {
+    public void setupRoutine(Routine routine) {
         if (renderer != null)
             renderer.setRoutine(routine);
         
