@@ -26,6 +26,10 @@ public class Routine {
         renderer = new EntityRenderer(shader);
     }
     
+    public void update() {
+    
+    }
+    
     public void render() {
         renderer.render(entity);
     }

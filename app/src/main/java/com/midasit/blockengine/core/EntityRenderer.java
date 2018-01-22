@@ -4,6 +4,8 @@ import android.opengl.GLES20;
 
 import com.midasit.blockengine.entity.Entity;
 import com.midasit.blockengine.loader.Loader;
+import com.midasit.blockengine.lwjgl.MathUtils;
+import com.midasit.blockengine.lwjgl.Matrix4f;
 import com.midasit.blockengine.shader.ColorShader;
 
 /**
@@ -52,5 +54,9 @@ public class EntityRenderer {
     
     private void prepareInstance(Entity entity) {
         // TODO: 2018-01-18 IMPLEMENT
+        Matrix4f transformationMatrix = MathUtils.createTransformationMatrix(
+            entity.getPosition(), entity.getRx(), entity.getRy(), entity.getRz(), entity.getScale());
+
+        shader.loadTransformationMatrix(transformationMatrix);
     }
 }

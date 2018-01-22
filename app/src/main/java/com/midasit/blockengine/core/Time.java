@@ -15,7 +15,7 @@ public class Time {
     private static long lastFrameTime;
     
     private static float deltaTime;
-    
+    private static int globalCounter;
     private static boolean isRunning;
     
     private static Time internal;
@@ -39,6 +39,7 @@ public class Time {
         lastFrameTime = System.currentTimeMillis();
         if (internal == null)
             internal = new Time();
+        globalCounter = 0;
         internal.initTimer();
     }
     
@@ -57,6 +58,10 @@ public class Time {
         resume();
     }
     
+    public static float globalCounter() {
+        return globalCounter;
+    }
+    
     private class InternalTimer extends Thread {
         @Override
         public void run() {
@@ -66,6 +71,7 @@ public class Time {
                     
                     currentTime = System.currentTimeMillis();
                     deltaTime = (currentTime - lastFrameTime) / 1000f;
+                    globalCounter++;
                     lastFrameTime = currentTime;
     
                     Core.update();
