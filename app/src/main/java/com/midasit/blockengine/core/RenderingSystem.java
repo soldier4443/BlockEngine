@@ -54,15 +54,12 @@ public class RenderingSystem implements GLSurfaceView.Renderer, RenderingContext
             routine.update();
             routine.render();
         }
-    
-        Log.e("asdf", "onDrawFrame called");
     }
     
     @Override
     public void update() {
         if (view != null)
             view.queueEvent(() -> {
-                Log.e("asdf", "RenderingSystem - id:" + Thread.currentThread().getId());
                 view.requestRender();
             });
     }

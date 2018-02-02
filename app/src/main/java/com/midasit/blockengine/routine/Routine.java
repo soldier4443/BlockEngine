@@ -1,9 +1,11 @@
 package com.midasit.blockengine.routine;
 
 import com.midasit.blockengine.RenderingView;
+import com.midasit.blockengine.core.Camera;
 import com.midasit.blockengine.core.EntityRenderer;
 import com.midasit.blockengine.entity.Entity;
 import com.midasit.blockengine.loader.Loader;
+import com.midasit.blockengine.lwjgl.MathUtils;
 import com.midasit.blockengine.lwjgl.Matrix4f;
 import com.midasit.blockengine.shader.ColorShader;
 
@@ -21,6 +23,7 @@ public class Routine {
     
     protected Loader loader;
     protected Entity entity;
+    protected Camera camera;
     
     private ColorShader shader;
     private EntityRenderer renderer;
@@ -38,7 +41,12 @@ public class Routine {
     }
     
     public void render() {
+        shader.start();
+        
+        shader.loadViewMatrix(MathUtils.createViewMatrix(camera));
         renderer.render(entity, projectionMatrix);
+        
+        shader.stop();
     }
     
     public void setView(RenderingView view) {
@@ -54,7 +62,7 @@ public class Routine {
         projectionMatrix.m00 = 2 / (aspectRatio * size);
         projectionMatrix.m11 = 2 / size;
         projectionMatrix.m22 = -2 / (far - near);
-        projectionMatrix.m23 = -(far + near) / (far - near);
+        projectionMatrix.m32 = -(far + near) / (far - near);
     }
     
     protected void setSize(float size) {

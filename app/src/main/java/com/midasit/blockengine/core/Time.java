@@ -1,7 +1,5 @@
 package com.midasit.blockengine.core;
 
-import android.util.Log;
-
 /**
  * Created by nyh0111 on 2018-01-17.
  */
@@ -67,8 +65,6 @@ public class Time {
         public void run() {
             while (true) {
                 if (isRunning) {
-                    Log.e("asdf", "Running");
-                    
                     currentTime = System.currentTimeMillis();
                     deltaTime = (currentTime - lastFrameTime) / 1000f;
                     globalCounter++;

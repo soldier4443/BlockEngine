@@ -7,12 +7,11 @@ import java.nio.FloatBuffer;
  *
  * Important!! - Column major order
  *
- * 00 01 02 03
- * 10 11 12 13
- * 20 21 22 23
- * 30 31 32 33
+ * 00 10 20 30
+ * 01 11 21 31
+ * 02 12 22 32
+ * 03 13 23 33
  *
- * 00, 10, 20, 30, 01, 11, ...
  */
 
 public class Matrix4f extends Matrix {

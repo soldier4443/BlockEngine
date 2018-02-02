@@ -20,7 +20,6 @@ public class EntityRenderer {
     }
     
     public void render(Entity entity, Matrix4f projectionMatrix) {
-        shader.start();
         shader.loadProjectionMatrix(projectionMatrix);
         
         bindTexturedModel(entity);
@@ -30,8 +29,6 @@ public class EntityRenderer {
         GLES20.glDrawElements(GLES20.GL_TRIANGLES, entity.getModel().getVertexCount(), GLES20.GL_UNSIGNED_INT, 0);
         
         unbindTexturedModel();
-        
-        shader.stop();
     }
     
     /**
