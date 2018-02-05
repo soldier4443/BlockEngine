@@ -1,22 +1,21 @@
 package com.midasit.blockengine.entity;
 
 import com.midasit.blockengine.lwjgl.Vector3f;
-import com.midasit.blockengine.models.RawModel;
+import com.midasit.blockengine.models.TexturedModel;
 
 /**
  * Created by nyh0111 on 2018-01-18.
  */
 
 public class Entity {
-    private RawModel model;
-    
+    private TexturedModel model;
     private Vector3f position;
     private float rx, ry, rz;
     private float scale;
     
     private boolean isChanged;
     
-    public Entity(RawModel model, Vector3f position, float rx, float ry, float rz, float scale) {
+    public Entity(TexturedModel model, Vector3f position, float rx, float ry, float rz, float scale) {
         this.model = model;
         this.position = position;
         this.rx = rx;
@@ -68,11 +67,11 @@ public class Entity {
     }
     
     
-    public RawModel getModel() {
+    public TexturedModel getModel() {
         return model;
     }
     
-    public void setModel(RawModel model) {
+    public void setModel(TexturedModel model) {
         this.model = model;
     }
     

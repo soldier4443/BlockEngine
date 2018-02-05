@@ -51,4 +51,8 @@ public class Routine {
     public void setView(RenderingView view) {
         this.view = view;
     }
+    
+    public RenderingView getView() {
+        return view;
+    }
 }

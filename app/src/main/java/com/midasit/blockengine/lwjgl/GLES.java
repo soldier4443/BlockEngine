@@ -38,4 +38,12 @@ public class GLES {
     public static void glUniformMatrix4(int location, boolean transpose, FloatBuffer matrices) {
         GLES20.glUniformMatrix4fv(location, matrices.remaining() >> 4, transpose, matrices);
     }
+    
+    public static int glGenTextures() {
+        final int[] texture = new int[1];
+        
+        GLES20.glGenTextures(1, texture, 0);
+        
+        return texture[0];
+    }
 }

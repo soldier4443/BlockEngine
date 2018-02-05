@@ -25,6 +25,7 @@ public class ColorShader extends ShaderProgram {
     @Override
     protected void bindAttributes() {
         bindAttribute(Loader.ATTRIB_POSITION, "position");
+        bindAttribute(Loader.ATTRIB_TEXTURE_COORDS, "textureCoords");
     }
     
     @Override

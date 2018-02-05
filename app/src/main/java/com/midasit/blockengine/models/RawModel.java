@@ -4,22 +4,32 @@ package com.midasit.blockengine.models;
  * 메모리 상의 3D 모델을 나타냄.
  */
 public class RawModel {
-    private int vertexVbo;
+    private int positionVbo;
+    private int textureCoordsVbo;
     private int ibo;
     private int vertexCount;
     
-    public RawModel(int vertexVbo, int ibo, int vertexCount) {
-        this.vertexVbo = vertexVbo;
+    public RawModel(int positionVbo, int textureCoordsVbo, int ibo, int vertexCount) {
+        this.positionVbo = positionVbo;
+        this.textureCoordsVbo = textureCoordsVbo;
         this.ibo = ibo;
         this.vertexCount = vertexCount;
     }
     
-    public int getVertexVbo() {
-        return vertexVbo;
+    public int getPositionVbo() {
+        return positionVbo;
     }
     
-    public void setVertexVbo(int vertexVbo) {
-        this.vertexVbo = vertexVbo;
+    public void setPositionVbo(int positionVbo) {
+        this.positionVbo = positionVbo;
+    }
+    
+    public int getTextureCoordsVbo() {
+        return textureCoordsVbo;
+    }
+    
+    public void setTextureCoordsVbo(int textureCoordsVbo) {
+        this.textureCoordsVbo = textureCoordsVbo;
     }
     
     public int getIbo() {
