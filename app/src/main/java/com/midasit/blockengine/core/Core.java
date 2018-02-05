@@ -29,6 +29,7 @@ public class Core {
     
     // TODO: 2018-01-22 When I should call this..?
     public static void unregisterContext(RenderingContext renderingContext) {
+        renderingContext.cleanUp();
         contextList.remove(renderingContext);
     }
 }

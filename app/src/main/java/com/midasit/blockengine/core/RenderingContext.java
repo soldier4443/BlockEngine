@@ -6,4 +6,5 @@ package com.midasit.blockengine.core;
 
 public interface RenderingContext {
     void update();
+    void cleanUp();
 }

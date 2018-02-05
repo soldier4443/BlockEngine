@@ -2,21 +2,12 @@ package com.midasit.blockengine;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.midasit.blockengine.core.Core;
-import com.midasit.blockengine.core.RenderingContext;
 import com.midasit.blockengine.core.RenderingSystem;
 import com.midasit.blockengine.routine.SimpleRoutine;
 
 public class MainActivity extends AppCompatActivity {
-    
-    static class SimpleTester implements RenderingContext {
-        @Override
-        public void update() {
-            Log.e("asdf", "SimpleTester - id: " + Thread.currentThread().getId());
-        }
-    }
     
     RenderingView renderingView1;
     RenderingView renderingView2;
@@ -46,6 +37,16 @@ public class MainActivity extends AppCompatActivity {
         });
         
         Core.init();
+        
+        Core.registerContext(renderingView1.getRenderer());
+        Core.registerContext(renderingView2.getRenderer());
+    }
+    
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Core.unregisterContext(renderingView1.getRenderer());
+        Core.unregisterContext(renderingView2.getRenderer());
     }
     
     @Override

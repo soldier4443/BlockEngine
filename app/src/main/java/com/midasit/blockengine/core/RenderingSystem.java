@@ -21,7 +21,9 @@ public class RenderingSystem implements GLSurfaceView.Renderer, RenderingContext
     private GLSurfaceView view;
     private Routine routine;
     
+    // Flags
     private boolean ready;
+    private boolean cleanUp;
     
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
@@ -33,7 +35,6 @@ public class RenderingSystem implements GLSurfaceView.Renderer, RenderingContext
     
         GLES20.glEnable(GL_TEXTURE_2D);
         
-        Core.registerContext(this);
         ready = false;
         
         Log.e("asdf", "onSurfaceCreated called");
@@ -55,10 +56,15 @@ public class RenderingSystem implements GLSurfaceView.Renderer, RenderingContext
             Log.e("asdf", "RenderingSystem is ready to render!");
             ready = true;
         }
-        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
         
-        if (routine != null) {
-            routine.render();
+        if (cleanUp) {
+            cleanUp();
+        } else {
+            GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
+    
+            if (routine != null) {
+                routine.render();
+            }
         }
     }
     
@@ -72,6 +78,11 @@ public class RenderingSystem implements GLSurfaceView.Renderer, RenderingContext
                     view.queueEvent(() -> view.requestRender());
             }
         }
+    }
+    
+    @Override
+    public void cleanUp() {
+        cleanUp = true;
     }
     
     

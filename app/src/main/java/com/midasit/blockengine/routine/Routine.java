@@ -108,4 +108,12 @@ public class Routine {
     public RenderingView getView() {
         return view;
     }
+    
+    public void cleanUp() {
+        entities.clear();
+        entityList.clear();
+    
+        loader.cleanUp();
+        shader.cleanUp();
+    }
 }

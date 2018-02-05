@@ -53,4 +53,8 @@ public class RenderingView extends android.opengl.GLSurfaceView {
     public Routine getRoutine() {
         return routine;
     }
+    
+    public RenderingSystem getRenderer() {
+        return renderer;
+    }
 }
