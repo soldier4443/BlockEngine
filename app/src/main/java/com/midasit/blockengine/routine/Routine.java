@@ -1,5 +1,8 @@
 package com.midasit.blockengine.routine;
 
+import android.util.Log;
+
+import com.annimon.stream.Stream;
 import com.midasit.blockengine.RenderingView;
 import com.midasit.blockengine.core.Camera;
 import com.midasit.blockengine.core.EntityRenderer;
@@ -26,6 +29,9 @@ public class Routine {
     protected Map<TexturedModel, List<Entity>> entities = new HashMap<>();
     protected Camera camera;
     
+    // This is for reference!
+    private List<Entity> entityList = new LinkedList<>();
+    
     private ColorShader shader;
     private EntityRenderer renderer;
     
@@ -43,7 +49,10 @@ public class Routine {
     }
     
     public void render() {
+        Log.e("asdf", "Render!");
+        
         camera.update();
+        Stream.of(entityList).forEach(Entity::update);
         
         shader.start();
         
@@ -52,6 +61,13 @@ public class Routine {
         renderer.render(entities);
         
         shader.stop();
+    }
+    
+    /**
+     * Should we render this frame?
+     */
+    public boolean checkForRender() {
+        return camera.isChanged() || Stream.of(entityList).anyMatch(Entity::isChanged);
     }
     
     public void addEntity(Entity entity) {
@@ -63,16 +79,14 @@ public class Routine {
         
             entities.put(entity.getModel(), batch);
         }
+    
+        entityList.add(entity);
     }
     
     public Entity findEntity(String name) {
-        for (TexturedModel model : entities.keySet()) {
-            List<Entity> batch = entities.get(model);
-            for (Entity entity : batch) {
-                if ( name.equals(entity.getName()) ) {
-                    return entity;
-                }
-            }
+        for (Entity entity : entityList) {
+            if (entity.getName().equals(name))
+                return entity;
         }
         
         return null;
@@ -83,6 +97,7 @@ public class Routine {
         
         if (entity != null) {
             entities.get(entity.getModel()).remove(entity);
+            entityList.remove(entity);
         }
     }
     

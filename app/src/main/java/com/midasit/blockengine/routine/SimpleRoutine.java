@@ -51,11 +51,19 @@ public class SimpleRoutine extends Routine {
         addEntity(new Entity("entity2", model, new Vector3f(2, 0, -2), 0, 0, 0, 1));
     }
     
+    int count = 0;
+    
     @Override
     public void update() {
         super.update();
         
-        camera.setPosition(MathUtils.sin(Time.globalCounter())  * 0.5f, camera.getPosition().getY(), camera.getPosition().getZ());
-        camera.setSize(5 + 3 * MathUtils.sin(Time.globalCounter() * 2));
+        count++;
+        
+        if (count > 20) {
+            camera.setPosition(MathUtils.sin(Time.globalCounter())  * 0.5f, camera.getPosition().getY(), camera.getPosition().getZ());
+            camera.setSize(5 + 3 * MathUtils.sin(Time.globalCounter() * 2));
+            
+            count -= 20;
+        }
     }
 }
