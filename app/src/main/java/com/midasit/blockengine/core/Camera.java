@@ -18,7 +18,7 @@ public class Camera extends Entity {
     private float size = 1f;
     
     public Camera(Vector3f position, float rx, float ry, float rz, float width, float height, float near, float far) {
-        super(null, position, rx, ry, rz, 1);
+        super("Main Camera", null, position, rx, ry, rz, 1);
         
         float aspectRatio = width / height;
         

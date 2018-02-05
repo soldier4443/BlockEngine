@@ -10,6 +10,9 @@ import com.midasit.blockengine.models.RawModel;
 import com.midasit.blockengine.models.TexturedModel;
 import com.midasit.blockengine.shader.ColorShader;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by nyh0111 on 2018-01-18.
  */
@@ -21,15 +24,21 @@ public class EntityRenderer {
         this.shader = shader;
     }
     
-    public void render(Entity entity, Matrix4f projectionMatrix) {
-        shader.loadProjectionMatrix(projectionMatrix);
-        
-        bindTexturedModel(entity.getModel());
-        
-        prepareInstance(entity);
-        GLES20.glDrawElements(GLES20.GL_TRIANGLES, entity.getModel().getRawModel().getVertexCount(), GLES20.GL_UNSIGNED_INT, 0);
-        
-        unbindTexturedModel();
+    public void render(Map<TexturedModel, List<Entity>> entities) {
+        for (TexturedModel model : entities.keySet()) {
+            bindTexturedModel(model);
+            
+            List<Entity> batch = entities.get(model);
+            
+            for (Entity entity : batch) {
+                prepareInstance(entity);
+    
+                GLES20.glDrawElements(GLES20.GL_TRIANGLES, model.getRawModel().getVertexCount(),
+                    GLES20.GL_UNSIGNED_INT, 0);
+            }
+    
+            unbindTexturedModel();
+        }
     }
     
     /**

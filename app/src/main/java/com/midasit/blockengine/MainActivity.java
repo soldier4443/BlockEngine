@@ -41,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
 //            Core.registerContext(simpleTester);
 //        }
         
+        findViewById(R.id.button_1).setOnClickListener(v -> {
+            renderingView1.getRoutine().removeEntity("entity1");
+        });
+        
         Core.init();
     }
     

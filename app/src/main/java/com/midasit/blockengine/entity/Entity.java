@@ -8,6 +8,7 @@ import com.midasit.blockengine.models.TexturedModel;
  */
 
 public class Entity {
+    private String name;
     private TexturedModel model;
     private Vector3f position;
     private float rx, ry, rz;
@@ -15,7 +16,8 @@ public class Entity {
     
     private boolean isChanged;
     
-    public Entity(TexturedModel model, Vector3f position, float rx, float ry, float rz, float scale) {
+    public Entity(String name, TexturedModel model, Vector3f position, float rx, float ry, float rz, float scale) {
+        this.name = name;
         this.model = model;
         this.position = position;
         this.rx = rx;
@@ -66,6 +68,14 @@ public class Entity {
         isChanged = true;
     }
     
+    
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
     
     public TexturedModel getModel() {
         return model;

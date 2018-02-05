@@ -49,4 +49,8 @@ public class RenderingView extends android.opengl.GLSurfaceView {
         setEGLContextClientVersion(2);
         setPreserveEGLContextOnPause(true);
     }
+    
+    public Routine getRoutine() {
+        return routine;
+    }
 }

@@ -47,7 +47,8 @@ public class SimpleRoutine extends Routine {
         ModelTexture modelTexture = new ModelTexture(loader.loadTexture(getView().getContext(), R.drawable.pattern_2));
         model = new TexturedModel(rawModel, modelTexture);
         
-        entity = new Entity(model, new Vector3f(0, 0, -2), 0, 0, 0, 1);
+        addEntity(new Entity("entity1", model, new Vector3f(-2, 0, -2), 0, 0, 0, 1));
+        addEntity(new Entity("entity2", model, new Vector3f(2, 0, -2), 0, 0, 0, 1));
     }
     
     @Override
