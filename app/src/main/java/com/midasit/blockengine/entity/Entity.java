@@ -14,6 +14,8 @@ public class Entity {
     private float rx, ry, rz;
     private float scale;
     
+    private boolean isChanged;
+    
     public Entity(RawModel model, Vector3f position, float rx, float ry, float rz, float scale) {
         this.model = model;
         this.position = position;
@@ -21,19 +23,48 @@ public class Entity {
         this.ry = ry;
         this.rz = rz;
         this.scale = scale;
+        this.isChanged = true;
     }
     
+    /**
+     * Called immediate before render.
+     */
+    public void update() {
+        if (isChanged) {
+            onUpdate();
+            isChanged = false;
+        }
+    }
+    
+    public void onUpdate() {
+    }
+    
+    public void setPosition(float dx, float dy, float dz) {
+        position.x = dx;
+        position.y = dy;
+        position.z = dz;
+        isChanged = true;
+    }
+    
+    public void setRotation(float dx, float dy, float dz) {
+        rx = dx;
+        ry = dy;
+        rz = dz;
+        isChanged = true;
+    }
     
     public void move(float dx, float dy, float dz) {
         position.x += dx;
         position.y += dy;
         position.z += dz;
+        isChanged = true;
     }
     
     public void rotate(float dx, float dy, float dz) {
         rx += dx;
         ry += dy;
         rz += dz;
+        isChanged = true;
     }
     
     
@@ -83,5 +114,13 @@ public class Entity {
     
     public void setScale(float scale) {
         this.scale = scale;
+    }
+    
+    public boolean isChanged() {
+        return isChanged;
+    }
+    
+    public void setChanged(boolean changed) {
+        isChanged = changed;
     }
 }
