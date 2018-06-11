@@ -3,7 +3,7 @@ package com.midasit.blockengine.shader;
 import android.content.Context;
 
 import com.midasit.blockengine.R;
-import com.midasit.blockengine.loader.Loader;
+import com.midasit.blockengine.loader.ModelLoader;
 import com.midasit.blockengine.loader.RawResourceReader;
 import com.midasit.blockengine.lwjgl.Matrix4f;
 
@@ -24,8 +24,8 @@ public class ColorShader extends ShaderProgram {
     
     @Override
     protected void bindAttributes() {
-        bindAttribute(Loader.ATTRIB_POSITION, "position");
-        bindAttribute(Loader.ATTRIB_TEXTURE_COORDS, "textureCoords");
+        bindAttribute(ModelLoader.ATTRIB_POSITION, "position");
+        bindAttribute(ModelLoader.ATTRIB_TEXTURE_COORDS, "textureCoords");
     }
     
     @Override

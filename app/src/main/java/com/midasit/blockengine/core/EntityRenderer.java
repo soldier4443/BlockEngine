@@ -3,7 +3,7 @@ package com.midasit.blockengine.core;
 import android.opengl.GLES20;
 
 import com.midasit.blockengine.entity.Entity;
-import com.midasit.blockengine.loader.Loader;
+import com.midasit.blockengine.loader.ModelLoader;
 import com.midasit.blockengine.lwjgl.MathUtils;
 import com.midasit.blockengine.lwjgl.Matrix4f;
 import com.midasit.blockengine.models.RawModel;
@@ -54,8 +54,8 @@ public class EntityRenderer {
     private void bindTexturedModel(TexturedModel model) {
         RawModel rawModel = model.getRawModel();
         
-        GLES20.glEnableVertexAttribArray(Loader.ATTRIB_POSITION);
-        GLES20.glEnableVertexAttribArray(Loader.ATTRIB_TEXTURE_COORDS);
+        GLES20.glEnableVertexAttribArray(ModelLoader.ATTRIB_POSITION);
+        GLES20.glEnableVertexAttribArray(ModelLoader.ATTRIB_TEXTURE_COORDS);
         
         GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, rawModel.getPositionVbo());
         GLES20.glVertexAttribPointer(0, 3, GLES20.GL_FLOAT, false, 3 * 4, 0);
@@ -70,8 +70,8 @@ public class EntityRenderer {
      * Unbind textured model for other entities.
      */
     private void unbindTexturedModel() {
-        GLES20.glDisableVertexAttribArray(Loader.ATTRIB_POSITION);
-        GLES20.glDisableVertexAttribArray(Loader.ATTRIB_TEXTURE_COORDS);
+        GLES20.glDisableVertexAttribArray(ModelLoader.ATTRIB_POSITION);
+        GLES20.glDisableVertexAttribArray(ModelLoader.ATTRIB_TEXTURE_COORDS);
     }
     
     private void prepareInstance(Entity entity) {

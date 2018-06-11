@@ -29,7 +29,7 @@ import static android.opengl.GLES20.glTexParameteri;
  * Created by nyh0111 on 2018-01-17.
  */
 
-public class Loader {
+public class ModelLoader {
     
     public static final int ATTRIB_POSITION = 0;
     public static final int ATTRIB_TEXTURE_COORDS = 1;

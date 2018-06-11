@@ -6,7 +6,7 @@ import com.midasit.blockengine.core.Camera;
 import com.midasit.blockengine.core.EntityRenderer;
 import com.midasit.blockengine.core.RenderingContext;
 import com.midasit.blockengine.entity.Entity;
-import com.midasit.blockengine.loader.Loader;
+import com.midasit.blockengine.loader.ModelLoader;
 import com.midasit.blockengine.lwjgl.Vector3f;
 import com.midasit.blockengine.models.TexturedModel;
 import com.midasit.blockengine.shader.ColorShader;
@@ -24,7 +24,7 @@ public class Routine implements RenderingContext {
     
     protected Map<TexturedModel, List<Entity>> entities = new HashMap<>();
     
-    protected Loader loader;
+    protected ModelLoader modelLoader;
     protected Camera camera;
     
     private RenderingView view;
@@ -36,7 +36,7 @@ public class Routine implements RenderingContext {
     private EntityRenderer renderer;
     
     public void init(int width, int height) {
-        loader = new Loader();
+        modelLoader = new ModelLoader();
         shader = new ColorShader(view.getContext());
         renderer = new EntityRenderer(shader);
         
@@ -112,7 +112,7 @@ public class Routine implements RenderingContext {
         entities.clear();
         entityList.clear();
         
-        loader.cleanUp();
+        modelLoader.cleanUp();
         shader.cleanUp();
     }
 }

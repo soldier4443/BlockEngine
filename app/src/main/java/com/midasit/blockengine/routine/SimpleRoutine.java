@@ -45,8 +45,8 @@ public class SimpleRoutine extends Routine {
     public void init(int width, int height) {
         super.init(width, height);
         
-        RawModel rawModel = loader.createModel(positions, textureCoords, indices);
-        ModelTexture modelTexture = new ModelTexture(loader.loadTexture(getView().getContext(), R.drawable.pattern_2));
+        RawModel rawModel = modelLoader.createModel(positions, textureCoords, indices);
+        ModelTexture modelTexture = new ModelTexture(modelLoader.loadTexture(getView().getContext(), R.drawable.pattern_2));
         model = new TexturedModel(rawModel, modelTexture);
         
         for (int i = 0; i < dupCount; i++) {
