@@ -3,7 +3,7 @@ package com.midasit.blockengine.lwjgl;
 import java.nio.FloatBuffer;
 
 /**
- * Created by nyh0111 on 2018-01-18.
+ * Created by tura on 2018-01-18.
  */
 
 public abstract class Vector {

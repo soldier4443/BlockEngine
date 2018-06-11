@@ -1,9 +1,8 @@
 package com.midasit.blockengine.texture;
 
 /**
- * Created by nyh0111 on 2018-02-05.
+ * Created by tura on 2018-02-05.
  */
-
 public class ModelTexture {
     
     private int textureId;

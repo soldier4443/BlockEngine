@@ -17,9 +17,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by nyh0111 on 2018-01-17.
+ * Created by tura on 2018-01-17.
  */
-
 public class Routine implements RenderingContext {
     
     protected Map<TexturedModel, List<Entity>> entities = new HashMap<>();

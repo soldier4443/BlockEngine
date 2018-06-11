@@ -1,9 +1,8 @@
 package com.midasit.blockengine.core;
 
 /**
- * Created by nyh0111 on 2018-01-17.
+ * Created by tura on 2018-01-17.
  */
-
 public class Time {
     
     public static int FPS_CAP = 60;

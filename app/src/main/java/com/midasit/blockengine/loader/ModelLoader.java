@@ -26,9 +26,8 @@ import static android.opengl.GLES20.glBindTexture;
 import static android.opengl.GLES20.glTexParameteri;
 
 /**
- * Created by nyh0111 on 2018-01-17.
+ * Created by tura on 2018-01-17.
  */
-
 public class ModelLoader {
     
     public static final int ATTRIB_POSITION = 0;

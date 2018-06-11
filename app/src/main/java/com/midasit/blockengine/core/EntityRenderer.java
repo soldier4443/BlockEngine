@@ -15,9 +15,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by nyh0111 on 2018-01-18.
+ * Created by tura on 2018-01-18.
  */
-
 public class EntityRenderer {
     private ColorShader shader;
     

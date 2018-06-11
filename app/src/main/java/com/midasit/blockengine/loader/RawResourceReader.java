@@ -8,9 +8,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * Created by nyh0111 on 2017-05-30.
+ * Created by tura on 2017-05-30.
  */
-
 public class RawResourceReader {
     public static String readTextFileFromRawResources(final Context context, final int resourceId) {
         final InputStream inputStream = context.getResources().openRawResource(resourceId);

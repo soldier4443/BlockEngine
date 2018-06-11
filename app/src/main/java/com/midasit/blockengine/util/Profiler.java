@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * Created by nyh0111 on 2018-06-11.
+ * Created by tura on 2018-06-11.
  * <p>
  * 조사 클래스
  */

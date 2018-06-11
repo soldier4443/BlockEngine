@@ -14,9 +14,8 @@ import static android.opengl.GLES20.GL_BACK;
 import static android.opengl.GLES20.GL_TEXTURE_2D;
 
 /**
- * Created by nyh0111 on 2018-01-17.
+ * Created by tura on 2018-01-17.
  */
-
 public class RenderingSystem implements GLSurfaceView.Renderer, RenderingContext {
     
     private GLSurfaceView view;

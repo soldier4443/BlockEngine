@@ -10,9 +10,8 @@ import com.midasit.blockengine.models.TexturedModel;
 import com.midasit.blockengine.texture.ModelTexture;
 
 /**
- * Created by nyh0111 on 2018-01-22.
+ * Created by tura on 2018-01-22.
  */
-
 public class SimpleRoutine extends Routine {
     
     private final float[] positions = {

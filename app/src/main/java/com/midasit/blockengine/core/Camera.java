@@ -5,9 +5,8 @@ import com.midasit.blockengine.lwjgl.Matrix4f;
 import com.midasit.blockengine.lwjgl.Vector3f;
 
 /**
- * Created by nyh0111 on 2018-02-02.
+ * Created by tura on 2018-02-02.
  */
-
 public class Camera extends Entity {
     
     private Vector3f tempVector = new Vector3f();

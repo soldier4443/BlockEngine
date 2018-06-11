@@ -15,7 +15,7 @@ import static android.opengl.GLES20.glTexParameteri;
 import static com.midasit.blockengine.lwjgl.GLES.glGenTextures;
 
 /**
- * Created by nyh0111 on 2018-06-11.
+ * Created by tura on 2018-06-11.
  */
 public class TextureLoader {
     public static int loadTexture(Context context, int resourceId) {

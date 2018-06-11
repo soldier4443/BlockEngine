@@ -3,9 +3,8 @@ package com.midasit.blockengine.models;
 import com.midasit.blockengine.texture.ModelTexture;
 
 /**
- * Created by nyh0111 on 2018-02-05.
+ * Created by tura on 2018-02-05.
  */
-
 public class TexturedModel {
     
     private RawModel rawModel;

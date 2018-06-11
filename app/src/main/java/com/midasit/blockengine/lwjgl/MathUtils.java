@@ -1,9 +1,8 @@
 package com.midasit.blockengine.lwjgl;
 
 /**
- * Created by nyh0111 on 2018-01-22.
+ * Created by tura on 2018-01-22.
  */
-
 public class MathUtils {
     
     /**

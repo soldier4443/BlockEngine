@@ -6,9 +6,8 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
 /**
- * Created by nyh0111 on 2018-01-17.
+ * Created by tura on 2018-01-17.
  */
-
 public class BufferUtils {
     
     public static ByteBuffer createByteBuffer(int size) {

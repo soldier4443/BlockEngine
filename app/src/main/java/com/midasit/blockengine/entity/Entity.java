@@ -4,9 +4,8 @@ import com.midasit.blockengine.lwjgl.Vector3f;
 import com.midasit.blockengine.models.TexturedModel;
 
 /**
- * Created by nyh0111 on 2018-01-18.
+ * Created by tura on 2018-01-18.
  */
-
 public class Entity {
     private String name;
     private TexturedModel model;

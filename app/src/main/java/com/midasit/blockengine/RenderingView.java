@@ -8,9 +8,8 @@ import com.midasit.blockengine.core.RenderingSystem;
 import com.midasit.blockengine.routine.Routine;
 
 /**
- * Created by nyh0111 on 2018-01-17.
+ * Created by tura on 2018-01-17.
  */
-
 public class RenderingView extends android.opengl.GLSurfaceView {
 
     private RenderingSystem renderer;

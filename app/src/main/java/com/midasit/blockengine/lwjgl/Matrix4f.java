@@ -3,7 +3,7 @@ package com.midasit.blockengine.lwjgl;
 import java.nio.FloatBuffer;
 
 /**
- * Created by nyh0111 on 2018-01-18.
+ * Created by tura on 2018-01-18.
  *
  * Important!! - Column major order
  *
@@ -13,7 +13,6 @@ import java.nio.FloatBuffer;
  * 03 13 23 33
  *
  */
-
 public class Matrix4f extends Matrix {
     private static final long serialVersionUID = 1L;
     public float m00;

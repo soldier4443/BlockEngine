@@ -8,9 +8,8 @@ import com.midasit.blockengine.loader.RawResourceReader;
 import com.midasit.blockengine.lwjgl.Matrix4f;
 
 /**
- * Created by nyh0111 on 2018-01-18.
+ * Created by tura on 2018-01-18.
  */
-
 public class ColorShader extends ShaderProgram {
     
     private int location_transformationMatrix;
