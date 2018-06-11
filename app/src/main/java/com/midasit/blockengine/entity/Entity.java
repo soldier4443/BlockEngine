@@ -29,15 +29,16 @@ public class Entity {
     
     /**
      * Called immediate before render.
+     * @param deltaTime
      */
-    public void update() {
+    public void update(float deltaTime) {
         if (isChanged) {
-            onUpdate();
+            onUpdate(deltaTime);
             isChanged = false;
         }
     }
     
-    public void onUpdate() {
+    public void onUpdate(float deltaTime) {
     }
     
     public void setPosition(float dx, float dy, float dz) {

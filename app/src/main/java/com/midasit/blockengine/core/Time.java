@@ -56,7 +56,7 @@ public class Time {
         resume();
     }
     
-    public static float globalCounter() {
+    public static int globalCounter() {
         return globalCounter;
     }
     
@@ -70,7 +70,7 @@ public class Time {
                     globalCounter++;
                     lastFrameTime = currentTime;
     
-                    Core.update();
+                    Core.update(deltaTime);
                     
                     try {
                         Thread.sleep((long) FRAME_TIME);

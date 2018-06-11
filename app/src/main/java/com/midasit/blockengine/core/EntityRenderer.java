@@ -9,6 +9,7 @@ import com.midasit.blockengine.lwjgl.Matrix4f;
 import com.midasit.blockengine.models.RawModel;
 import com.midasit.blockengine.models.TexturedModel;
 import com.midasit.blockengine.shader.ColorShader;
+import com.midasit.blockengine.util.Profiler;
 
 import java.util.List;
 import java.util.Map;
@@ -24,7 +25,9 @@ public class EntityRenderer {
         this.shader = shader;
     }
     
-    public void render(Map<TexturedModel, List<Entity>> entities) {
+    public int render(Map<TexturedModel, List<Entity>> entities) {
+        int drawCall = 0;
+        
         for (TexturedModel model : entities.keySet()) {
             bindTexturedModel(model);
             
@@ -32,13 +35,17 @@ public class EntityRenderer {
             
             for (Entity entity : batch) {
                 prepareInstance(entity);
-    
+                
                 GLES20.glDrawElements(GLES20.GL_TRIANGLES, model.getRawModel().getVertexCount(),
                     GLES20.GL_UNSIGNED_INT, 0);
+                
+                Profiler.onCurrentThread().addDrawCall();
             }
     
             unbindTexturedModel();
         }
+        
+        return drawCall;
     }
     
     /**

@@ -30,8 +30,8 @@ public class Camera extends Entity {
     }
     
     @Override
-    public void onUpdate() {
-        super.onUpdate();
+    public void onUpdate(float deltaTime) {
+        super.onUpdate(deltaTime);
     
         createViewMatrix();
         createProjectionMatrix();

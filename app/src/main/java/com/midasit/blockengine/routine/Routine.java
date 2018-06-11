@@ -1,11 +1,10 @@
 package com.midasit.blockengine.routine;
 
-import android.util.Log;
-
 import com.annimon.stream.Stream;
 import com.midasit.blockengine.RenderingView;
 import com.midasit.blockengine.core.Camera;
 import com.midasit.blockengine.core.EntityRenderer;
+import com.midasit.blockengine.core.RenderingContext;
 import com.midasit.blockengine.entity.Entity;
 import com.midasit.blockengine.loader.Loader;
 import com.midasit.blockengine.lwjgl.Vector3f;
@@ -21,13 +20,14 @@ import java.util.Map;
  * Created by nyh0111 on 2018-01-17.
  */
 
-public class Routine {
+public class Routine implements RenderingContext {
     
-    private RenderingView view;
+    protected Map<TexturedModel, List<Entity>> entities = new HashMap<>();
     
     protected Loader loader;
-    protected Map<TexturedModel, List<Entity>> entities = new HashMap<>();
     protected Camera camera;
+    
+    private RenderingView view;
     
     // This is for reference!
     private List<Entity> entityList = new LinkedList<>();
@@ -44,16 +44,14 @@ public class Routine {
     }
     
     // Update transformation, etc..
-    public void update() {
-    
+    @Override
+    public void update(float deltaTime) {
+        camera.update(deltaTime);
+        Stream.of(entityList)
+            .forEach(entity -> entity.update(deltaTime));
     }
     
     public void render() {
-        Log.e("asdf", "Render!");
-        
-        camera.update();
-        Stream.of(entityList).forEach(Entity::update);
-        
         shader.start();
         
         shader.loadViewMatrix(camera.getViewMatrix());
@@ -76,10 +74,10 @@ public class Routine {
         } else {
             List<Entity> batch = new LinkedList<>();
             batch.add(entity);
-        
+            
             entities.put(entity.getModel(), batch);
         }
-    
+        
         entityList.add(entity);
     }
     
@@ -101,18 +99,19 @@ public class Routine {
         }
     }
     
-    public void setView(RenderingView view) {
-        this.view = view;
-    }
-    
     public RenderingView getView() {
         return view;
     }
     
+    public void setView(RenderingView view) {
+        this.view = view;
+    }
+    
+    @Override
     public void cleanUp() {
         entities.clear();
         entityList.clear();
-    
+        
         loader.cleanUp();
         shader.cleanUp();
     }

@@ -5,6 +5,7 @@ import android.opengl.GLSurfaceView;
 import android.util.Log;
 
 import com.midasit.blockengine.routine.Routine;
+import com.midasit.blockengine.util.Profiler;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -37,7 +38,7 @@ public class RenderingSystem implements GLSurfaceView.Renderer, RenderingContext
         
         ready = false;
         
-        Log.e("asdf", "onSurfaceCreated called");
+        Log.e("RenderingSystem", "onSurfaceCreated called");
     }
     
     @Override
@@ -47,13 +48,13 @@ public class RenderingSystem implements GLSurfaceView.Renderer, RenderingContext
         if (routine != null)
             routine.init(width, height);
     
-        Log.e("asdf", "onSurfaceChanged called");
+        Log.e("RenderingSystem", "onSurfaceChanged called");
     }
     
     @Override
     public void onDrawFrame(GL10 gl) {
         if (!ready) {
-            Log.e("asdf", "RenderingSystem is ready to render!");
+            Log.e("RenderingSystem", "RenderingSystem is ready to render!");
             ready = true;
         }
         
@@ -66,12 +67,18 @@ public class RenderingSystem implements GLSurfaceView.Renderer, RenderingContext
                 routine.render();
             }
         }
+        
+        if (Time.globalCounter() % 60 == 0) {
+            Profiler.onCurrentThread()
+                .printOut()
+                .clearDrawCall();
+        }
     }
     
     @Override
-    public void update() {
+    public void update(float deltaTime) {
         if (ready && routine != null) {
-            routine.update();
+            routine.update(deltaTime);
             
             if (routine.checkForRender()) {
                 if (view != null)
